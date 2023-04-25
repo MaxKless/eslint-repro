@@ -1,0 +1,40 @@
+{
+  "name": "utils-tsc",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "utils-tsc/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/utils-tsc",
+        "main": "utils-tsc/src/index.ts",
+        "tsConfig": "utils-tsc/tsconfig.lib.json",
+        "assets": ["utils-tsc/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["utils-tsc/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "utils-tsc/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

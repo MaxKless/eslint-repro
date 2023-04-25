@@ -17,7 +17,8 @@
     "paths": {
       "@v16-type-repro/rollup-lib": ["rollup-lib/src/index.ts"],
       "@v16-type-repro/utils-esbuild": ["utils-esbuild/src/index.ts"],
-      "@v16-type-repro/utils-rollup": ["utils-rollup/src/index.ts"]
+      "@v16-type-repro/utils-rollup": ["utils-rollup/src/index.ts"],
+      "@v16-type-repro/utils-tsc": ["utils-tsc/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
