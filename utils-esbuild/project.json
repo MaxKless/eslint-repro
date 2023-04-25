@@ -1,0 +1,41 @@
+{
+  "name": "utils-esbuild",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "utils-esbuild/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/utils-esbuild",
+        "main": "utils-esbuild/src/index.ts",
+        "tsConfig": "utils-esbuild/tsconfig.lib.json",
+        "assets": ["utils-esbuild/*.md"],
+        "generatePackageJson": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["utils-esbuild/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "utils-esbuild/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
