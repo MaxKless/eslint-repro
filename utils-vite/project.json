@@ -1,0 +1,31 @@
+{
+  "name": "utils-vite",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "utils-vite/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/utils-vite"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/utils-vite"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../coverage/utils-vite"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["utils-vite/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
